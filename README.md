@@ -4,21 +4,21 @@ Is a command-line interpreter, mimics the bash but doing the basics functionalit
 
 **How it's works?**
 
-    -Reads its input from the user’s terminal.
-    -Breaks the input into words1 and operators, obeying the quoting rules described in Quoting. These tokens2 are separated by metacharacters3.
-    -Parses the tokens into commands.
-    -Performs the various expansions, breaking the expanded tokens.
-    -Performs any necessary redirections and removes the redirection operators4 and their operands from the argument list.
-    -Executes the command.
-    -Optionally waits for the command to complete and collects its exit status.
+MINISHELL works in a **LOOP**, when the shell is running, it loops infinitely through the following stages:
+
+1- Display the **prompt** "minish$" before reading each command line.
+2- Readline is used to read command from the user's terminal.
+3- The command line is interpreted (tokenized, parsed, expanded, quotes removed).
+Breaks the input into words and operators, obeying the quoting rules described in Quoting. These tokens are separated by metacharacters. Parses the tokens into commands. Performs the various expansions, breaking the expanded tokens. Performs any necessary redirections and removes the redirection operators4 and their operands from the argument list.
+4- The command line is redirected and executed.
+5-Optionally waits for the command to complete and collects its exit status.
+
 **#Things to deal:**
 - Many test cases
 - Software architecture
 - System calls
 - File descriptors
 - Team coordination, management and work distribution.
-
-**#Indispensable**
 - Planning and research, to avoid overhauling the whole design later
 ****
 # THE PROJECT - DEVELOPMENT 
