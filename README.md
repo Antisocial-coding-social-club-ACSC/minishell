@@ -24,8 +24,8 @@ MINISHELL works in a **LOOP**, when the shell is running, it loops infinitely th
 # THE PROJECT - DEVELOPMENT 
 - Has two parts : the **parsing** (where you treat user input) and the **execution** (where you execute what have been parsed).
 The implementation is split in this to parts **FRONT END** && **BACK END**
--  **FRONT END** The front-end is the part that deals with user input and user interaction, like commands and signals.
--  **BACK END** is where the internal work is done (the execution).
+---- **FRONT END** The front-end is the part that deals with user input and user interaction, like commands and signals.
+----  **BACK END** is where the internal work is done (the execution).
 
 ## **FRONT END**
 We have two things to take care:
