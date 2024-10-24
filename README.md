@@ -1,28 +1,16 @@
 # MINISHELL
 ******
 Is a command-line interpreter, mimics the bash but doing the basics functionality.
-- The shell will work only in interactive mode (no scripts, i.e. the executable takes no arguments)
-- Run simple commands with absolute, relative path (e.g. /bin/ls, ../bin/ls)
-- Run simple commands without a path (e.g. ls, cat, grep, etc…)
-- Have a working history (you can navigate through commands with up/down arrows)
-- Implement pipes (|)
-- Implement redirections (<, >, >>)
-- Implement the here-doc (<<)
-- Handle double quotes ("") and single quotes (''), which should escape special characters, beside $ for double quotes.
-- Handle environment variables ($ followed by a sequence of characters).
-- Handle signals like in bash (ctrl + C, ctrl + \, ctrl + D).
-- Implement the following built-ins:
-    *echo (option -n only)
-    *exit
-    *env (with no options or arguments)
-    *export (with no options)
-    *unset (with no options)
-    *cd
-    *pwd
-- And for the bonus part (optional, but i did it, because it’s cool!)
-- handle && and || with the parenthesis () for priority.
-- handle * wildcards for the current working directory.
 
+**How it's works?**
+
+    -Reads its input from the user’s terminal.
+    -Breaks the input into words1 and operators, obeying the quoting rules described in Quoting. These tokens2 are separated by metacharacters3.
+    -Parses the tokens into commands.
+    -Performs the various expansions, breaking the expanded tokens.
+    -Performs any necessary redirections and removes the redirection operators4 and their operands from the argument list.
+    -Executes the command.
+    -Optionally waits for the command to complete and collects its exit status.
 **#Things to deal:**
 - Many test cases
 - Software architecture
@@ -33,7 +21,7 @@ Is a command-line interpreter, mimics the bash but doing the basics functionalit
 **#Indispensable**
 - Planning and research, to avoid overhauling the whole design later
 ****
-# THE PROJECT
+# THE PROJECT - DEVELOPMENT 
 - Has two parts : the **parsing** (where you treat user input) and the **execution** (where you execute what have been parsed).
 The implementation is split in this to parts **FRONT END** && **BACK END**
 -  **FRONT END** The front-end is the part that deals with user input and user interaction, like commands and signals.
@@ -44,10 +32,10 @@ We have two things to take care:
 - **Command** (user as string)
 - **Signals** (Ctrl + c etc..)
 ### **Comands**:
-To understand this, the commands, it's neccesary to see how bash parse commands>>> parsing a command goes through two phases (**the lexical analysis (lexing)** which produces “lexems” and then the **syntax analysis** parsing the lexems)
+To understand this, the commands, it's neccesary to see how bash or every compiler parse commands>>> parsing a command goes through two phases (**the lexical analysis (lexing)** which produces “lexems” and then the **syntax analysis** parsing the lexems)
 
 **THE LEXICAL ANALYSIS:**
-Its the first part of the compilation, where is taking the input from the user and dividing in "lexemas" and processing it char by char into “tokens"
+Its the first part of the compilation, where is taking the input from the user and dividing in "lexemas" and processing it char by char into “tokens"... In this process we delete spaces, Tabs and we add "" '' if it's necessesary.
 -     EXAMPLE>>  int x = 10;
  **Lexemas:** It is the exact sequence of characters that appears in the source code.-
 - int
@@ -64,5 +52,6 @@ Its the first part of the compilation, where is taking the input from the user a
 - PUNCTUATION (;)
 
 First, the most important thing to us is the type of the lexems/tokens — not the values — and the order they came in.
+[Lexical analisys video](https://www.youtube.com/watch?v=MZ9NZdZteG4&ab_channel=NesoAcademy)
 
-**SYNTAX ANALYSIS / PARSING:**
+**SYNTAX ANALYSIS / PARSING:**:   
