@@ -48,23 +48,21 @@ To understand this, the commands, it's neccesary to see how bash parse commands>
 
 **THE LEXICAL ANALYSIS:**
 Its the first part of the compilation, where is taking the input from the user and dividing in "lexemas" and processing it char by char into “tokens"
-EXAMPLE>>  int x = 10;
- - **Lexemas:** It is the exact sequence of characters that appears in the source code.-
- 
- Example >>>> 
- int
-x
-=
-10
-;
-- **Tokens:** A token is an abstract representation of a sequence of characters that has a specific meaning within the context of a programming language. Each token can consist of one or more characters and is classified into different types.- 
+-     EXAMPLE>>  int x = 10;
+ **Lexemas:** It is the exact sequence of characters that appears in the source code.-
+- int
+- x
+- =
+- 10
+- ;
 
-Example >>>>>
-KEYWORD (int)
-IDENTIFIER (x)
-OPERATOR (=)
-LITERAL (10)
-PUNCTUATION (;)
+ **Tokens:** A token is an abstract representation of a sequence of characters that has a specific meaning within the context of a programming language. Each token can consist of one or more characters and is classified into different types.- 
+- KEYWORD (int)
+- IDENTIFIER (x)
+- OPERATOR (=)
+- LITERAL (10)
+- PUNCTUATION (;)
+
 First, the most important thing to us is the type of the lexems/tokens — not the values — and the order they came in.
 
 **SYNTAX ANALYSIS / PARSING:**
